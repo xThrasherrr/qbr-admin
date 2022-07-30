@@ -35,7 +35,7 @@ RegisterNetEvent('qbr-admin:ServerMenuPage', function()
             }
         },
         {
-            header = "❌ Close Menu",
+            header = "❌ | Close Menu",
             txt = '',
             params = {
                 event = 'qbr-menu:closeMenu',
@@ -279,7 +279,7 @@ RegisterNetEvent('qbr-admin:WeatherPage', function()
             }
         },
         {
-            header = "❌ Close Menu",
+            header = "❌ | Close Menu",
             txt = '',
             params = {
                 event = 'qbr-menu:closeMenu',
