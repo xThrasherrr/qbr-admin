@@ -43,7 +43,7 @@ RegisterNetEvent('qbr-admin:client:BanMenu', function(data)
     end, 'perms')
 end)
 
-RegisterNetEvent("qbr-admin:BanReason", function(data)
+RegisterNetEvent("qbr-admin:BanReason", function(id)
 
     local dialog = exports['qbr-input']:ShowInput({
         header = "Ban Player",
@@ -65,7 +65,7 @@ RegisterNetEvent("qbr-admin:BanReason", function(data)
     })
 
     if dialog ~= nil then
-        TriggerServerEvent('admin:server:ban', data.id, dialog.length, dialog.reason)
+        TriggerServerEvent('admin:server:ban', id, dialog.length, dialog.reason)
     end
 end)
 
