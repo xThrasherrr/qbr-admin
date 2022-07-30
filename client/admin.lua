@@ -222,7 +222,7 @@ RegisterNetEvent('qbr-admin:OpenAdminPage', function()
             txt = "",
             shouldClose = false,
             params = {
-                event = 'admin:client:revivePlayer',
+                event = 'hospital:client:Revive',
                 isServer = false,
             }
         },
