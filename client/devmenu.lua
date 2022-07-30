@@ -155,7 +155,11 @@ RegisterNetEvent('qbr-admin:DevMenuPage', function()
         },
     }
 
-    exports['qbr-menu']:openMenu(DevPage)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(DevPage)
+        end
+    end, 'perms')
 end)
 
 ----------------------
