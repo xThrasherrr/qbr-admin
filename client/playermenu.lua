@@ -107,7 +107,7 @@ RegisterNetEvent('qbr-admin:client:KickMenu', function(data)
     end, 'perms')
 end)
 
-RegisterNetEvent("qbr-admin:KickReason", function(data)
+RegisterNetEvent("qbr-admin:KickReason", function(id)
 
     local dialog = exports['qbr-input']:ShowInput({
         header = "Kick Player",
@@ -123,7 +123,7 @@ RegisterNetEvent("qbr-admin:KickReason", function(data)
     })
 
     if dialog ~= nil then
-        TriggerServerEvent('admin:server:kick', data.id, dialog.reason)
+        TriggerServerEvent('admin:server:kick', id, dialog.reason)
     end
 end)
 
