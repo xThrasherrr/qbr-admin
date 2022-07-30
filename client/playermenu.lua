@@ -23,7 +23,7 @@ RegisterNetEvent('qbr-admin:client:BanMenu', function(data)
             header = "⬅️ | Go Back",
             txt = "",
             params = {
-                event = 'qb-admin:PlayersPage',
+                event = 'qbr-admin:PlayersPage',
                 isServer = false,
             }
         },
@@ -36,7 +36,11 @@ RegisterNetEvent('qbr-admin:client:BanMenu', function(data)
         },
     }
 
-    exports['qbr-menu']:openMenu(BanMenu)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(BanMenu)
+        end
+    end, 'perms')
 end)
 
 RegisterNetEvent("qbr-admin:BanReason", function(data)
@@ -84,7 +88,7 @@ RegisterNetEvent('qbr-admin:client:KickMenu', function(data)
             header = "⬅️ | Go Back",
             txt = "",
             params = {
-                event = 'qb-admin:PlayersPage',
+                event = 'qbr-admin:PlayersPage',
                 isServer = false,
             }
         },
@@ -96,8 +100,11 @@ RegisterNetEvent('qbr-admin:client:KickMenu', function(data)
             }
         },
     }
-
-    exports['qbr-menu']:openMenu(KickMenu)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(KickMenu)
+        end
+    end, 'perms')
 end)
 
 RegisterNetEvent("qbr-admin:KickReason", function(data)
@@ -139,7 +146,7 @@ RegisterNetEvent('qbr-admin:client:PermissionsMenu', function(data)
             header = "⬅️ | Go Back",
             txt = "",
             params = {
-                event = 'qb-admin:PlayersPage',
+                event = 'qbr-admin:PlayersPage',
                 isServer = false,
             }
         },
@@ -152,7 +159,11 @@ RegisterNetEvent('qbr-admin:client:PermissionsMenu', function(data)
         },
     }
 
-    exports['qbr-menu']:openMenu(PermissionsMenu)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(PermissionsMenu)
+        end
+    end, 'perms')
 end)
 
 RegisterNetEvent("qbr-admin:PermissionsInput", function(data)
@@ -175,7 +186,7 @@ RegisterNetEvent("qbr-admin:PermissionsInput", function(data)
     end
 end)
 
-RegisterNetEvent('qb-admin:PlayersPage', function()
+RegisterNetEvent('qbr-admin:PlayersPage', function()
 
     exports['qbr-core']:TriggerCallback('admin:server:getplayers', function(players)
         local PlayersPage = {
@@ -190,7 +201,7 @@ RegisterNetEvent('qb-admin:PlayersPage', function()
                 header = 'ID: '..k..' | '..v.name,
                 txt = "",
                 params = {
-                    event = 'qb-admin:OpenPlayerMenu',
+                    event = 'qbr-admin:OpenPlayerMenu',
                     args = {name = v.name, player = k},
                 }
             }
@@ -212,11 +223,16 @@ RegisterNetEvent('qb-admin:PlayersPage', function()
             }
         }
 
-        exports['qbr-menu']:openMenu(PlayersPage)
+        exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+            if hasperms then
+                exports['qbr-menu']:openMenu(PlayersPage)
+            end
+        end, 'perms')
     end)
 end)
 
-RegisterNetEvent('qb-admin:OpenPlayerMenu', function(data)
+RegisterNetEvent('qbr-admin:OpenPlayerMenu', function(data)
+
     PlayerPage = {
         {
             header = "| "..data.name.." |",
@@ -368,5 +384,9 @@ RegisterNetEvent('qb-admin:OpenPlayerMenu', function(data)
         },
     }
 
-    exports['qbr-menu']:openMenu(PlayerPage)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(PlayerPage)
+        end
+    end, 'perms')
 end)
