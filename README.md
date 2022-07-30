@@ -8,9 +8,9 @@
 - Restart server if needed
 
 # Dependencies:
-- QBR-Core
-- QBR-Menu
-- QBR-Input
+- QBR-Core: https://github.com/qbcore-redm-framework/qbr-core
+- QBR-Menu: https://github.com/qbcore-redm-framework/qbr-menu
+- QBR-Input: https://github.com/qbcore-redm-framework/qbr-input
 
 # Credits:
 - QBR-Adminmenu: I used a LARGE amount of the code from the original resource, just converted to work with qbr-menu
