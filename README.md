@@ -16,6 +16,8 @@
 - QBR-Adminmenu: I used a LARGE amount of the code from the original resource, just converted to work with qbr-menu
 - https://github.com/qbcore-redm-framework/qbr-adminmenu
 
+#### Discord: https://discord.gg/cmWRvTHJBN
+
 # Previews:
 ### **Main Menu:**
 ![image](https://user-images.githubusercontent.com/101474430/181871795-20f25d53-082f-4dda-8565-94d583eb5e06.png)
