@@ -13,7 +13,7 @@ local permissions = {
   ['kick'] = 'admin',
   ['time'] = 'god',
   ['showcoords'] = 'admin',
-  ['perms'] = 'god',
+  ['perms'] = 'admin',
 }
 
 --------------------------
