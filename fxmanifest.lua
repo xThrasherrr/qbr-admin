@@ -24,3 +24,8 @@ files {
 }
 
 server_script 'server/*.lua'
+
+dependencies {
+	'qbr-menu',
+	'qbr-input'
+}
