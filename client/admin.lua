@@ -166,7 +166,7 @@ RegisterNetEvent('qbr-admin:OpenMainPage', function()
             header = "👨‍👩‍👧 | Online Players",
             txt = "",
             params = {
-                event = 'qb-admin:PlayersPage',
+                event = 'qbr-admin:PlayersPage',
                 isServer = false,
             }
         },
@@ -195,7 +195,11 @@ RegisterNetEvent('qbr-admin:OpenMainPage', function()
         },
     }
 
-    exports['qbr-menu']:openMenu(MainPage)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(MainPage)
+        end
+    end, 'perms')
 end)
 
 RegisterNetEvent('qbr-admin:OpenAdminPage', function()
@@ -266,5 +270,9 @@ RegisterNetEvent('qbr-admin:OpenAdminPage', function()
         },
     }
 
-    exports['qbr-menu']:openMenu(AdminPage)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(AdminPage)
+        end
+    end, 'perms')
 end)
