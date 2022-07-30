@@ -22,7 +22,7 @@ RegisterNetEvent('qbr-admin:ServerMenuPage', function()
             header = "⌚ | Server Time",
             txt = "",
             params = {
-                event = 'qb-admin:ServerTimeInput',
+                event = 'qbr-admin:ServerTimeInput',
                 isServer = false,
             }
         },
@@ -35,7 +35,7 @@ RegisterNetEvent('qbr-admin:ServerMenuPage', function()
             }
         },
         {
-            header = "❌ | Close Menu",
+            header = "❌ Close Menu",
             txt = '',
             params = {
                 event = 'qbr-menu:closeMenu',
@@ -43,11 +43,15 @@ RegisterNetEvent('qbr-admin:ServerMenuPage', function()
         },
     }
 
-    exports['qbr-menu']:openMenu(ServerMenu)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(ServerMenu)
+        end
+    end, 'perms')
 end)
 
 -- INPUT SERVER TIME --
-RegisterNetEvent("qb-admin:ServerTimeInput", function()
+RegisterNetEvent("qbr-admin:ServerTimeInput", function()
 
     local dialog = exports['qbr-input']:ShowInput({
         header = "Input Server Time",
@@ -279,7 +283,7 @@ RegisterNetEvent('qbr-admin:WeatherPage', function()
             }
         },
         {
-            header = "❌ | Close Menu",
+            header = "❌ Close Menu",
             txt = '',
             params = {
                 event = 'qbr-menu:closeMenu',
@@ -287,5 +291,9 @@ RegisterNetEvent('qbr-admin:WeatherPage', function()
         },
     }
 
-    exports['qbr-menu']:openMenu(ServerMenu)
+    exports['qbr-core']:TriggerCallback('admin:server:hasperms', function(hasperms)
+        if hasperms then
+            exports['qbr-menu']:openMenu(ServerMenu)
+        end
+    end, 'perms')
 end)
