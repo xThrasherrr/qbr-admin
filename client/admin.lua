@@ -108,6 +108,10 @@ end
 ------------------------
 ------- EVENTS ---------
 ------------------------
+RegisterNetEvent('qb-admin:client:SendStaffChat', function(name, msg)
+    TriggerServerEvent('qb-admin:server:Staffchat:addMessage', name, msg)
+end)
+
 RegisterNetEvent('qbr-admin:GoToMarker', function()
     local waypoint = GetWaypointCoords()
     if waypoint.x ~= 0 and waypoint.y ~= 0 then
